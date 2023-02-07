@@ -90,7 +90,7 @@ function App() {
         {results.length === 0 ? (
           <div className='home-gif-container'>
             <h3>Find your next adventure 😁</h3>
-            <img className='home-gif' src="../public/images/findbooks.gif" alt="No books found" />
+            <img className='home-gif' src="./public/images/findbooks.gif" alt="No books found" />
           </div>
           
         ) : (
