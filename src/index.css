@@ -5,6 +5,8 @@ body, html{
     color:lightgray;
 }
 
+/* Header */
+
 .header{
     background-image: url("../public/images/books.jpg");
     height: 400px;
@@ -17,8 +19,14 @@ body, html{
     height:450px;
     width: 100%;
     background-position: center;
-    
 }
+
+.header-text{
+    text-align: center;
+    margin-top: 7rem;
+}
+
+/* gifs */
 
 .home-gif-container{
     display: flex;
@@ -46,6 +54,8 @@ body, html{
     max-width: 70%;
 }
 
+/* Main Content */
+
 ul{
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +68,6 @@ li{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
     align-items: center;
     width: 30%;
     height: 12rem;
@@ -79,7 +88,7 @@ li{
     padding: .5rem;
 }
 
-
+/* Books */
 
 .book-img-container{
     display: flex;   
@@ -151,28 +160,6 @@ li{
     font-style: normal;
 }
 
-button{
-    cursor: pointer;
-}
-
-.readlist-btn{
-    border: none;
-    background-color: rgb(31, 54, 31);
-    border-radius: 20px;
-    color: lightgray;
-    padding: .5rem 1rem;
-}
-
-.readlist-btn:hover{
-    background-color: rgb(52, 92, 52);
-
-}
-
-.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
 input{
     background-color: #180C01;
     border-radius: 8px;
@@ -186,6 +173,12 @@ textarea{
 input:hover,
 input:focus{
     background-color: #492504;
+}
+
+/* Buttons */
+
+button{
+    cursor: pointer;
 }
 
 .header-btns{
@@ -207,12 +200,19 @@ input:focus{
     text-shadow: 3px 1px rgb(0, 0, 0);
 }
 
-.header-text{
-    
-    text-align: center;
-    margin-top: 7rem;
-    
+.readlist-btn{
+    border: none;
+    background-color: rgb(31, 54, 31);
+    border-radius: 20px;
+    color: lightgray;
+    padding: .5rem 1rem;
 }
+
+.readlist-btn:hover{
+    background-color: rgb(52, 92, 52);
+}
+
+/* Media Queries */
 @media (max-width: 870px){
     li{
         padding: 0 1rem;
