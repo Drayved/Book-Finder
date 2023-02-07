@@ -1,0 +1,255 @@
+body, html{
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right,  #180C01, #301903);
+    color:lightgray;
+}
+
+.header{
+    background-image: url("images/books.jpg");
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-img{
+    height:450px;
+    width: 100%;
+    background-position: center;
+    
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    
+}
+
+li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgb(45, 45, 45);
+    align-items: center;
+    width: 30%;
+    height: 12rem;
+    padding: .3rem;
+    text-align: center;
+    margin: 0 1em;
+    margin-bottom: 20px;
+}
+
+.search-container{
+   text-align: center;
+   margin: 1em 0;
+}
+
+.search-box{
+    width: 75%;
+    padding: .5rem;
+}
+
+
+
+.book-img-container{
+    display: flex;   
+    align-self: flex-start;
+    justify-content: center;
+    
+}
+
+.book-img{
+    max-height: 120px;
+    height: 120px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-self: left;
+    margin-bottom: 1rem;
+}
+
+.book-info{
+    margin-top: -130px;
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left:1rem;
+    
+}
+
+.title-link{
+    color:lightgray;
+    text-decoration: none;
+}
+
+.title,
+.sub-title{
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    padding-bottom: 5px;
+}
+
+.rating{
+    margin-top:5px;
+    padding-bottom: 1rem;
+    font-style: italic;
+}
+
+.sub-title{
+    font-style: italic;
+    margin-top:5px;
+}
+
+.rating-container{
+    padding-right:1rem;
+    text-align: right;
+    
+}
+
+.author{
+    font-size: .9rem;
+    font-style: italic;
+    margin-top: -2rem;
+    color: lightgray;
+}
+
+.author-id{
+    font-weight: bolder;
+    font-style: normal;
+}
+
+button{
+    cursor: pointer;
+}
+
+.readlist-btn{
+    border: none;
+    background-color: rgb(31, 54, 31);
+    border-radius: 20px;
+    color: lightgray;
+    padding: .5rem 1rem;
+}
+
+.readlist-btn:hover{
+    background-color: rgb(52, 92, 52);
+
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+input{
+    background-color: #180C01;
+    border-radius: 8px;
+}
+
+input,
+textarea{
+    color:whitesmoke;
+}
+
+input:hover,
+input:focus{
+    background-color: #492504;
+}
+
+.header-btns{
+    display: flex;
+    justify-content: end;
+    align-self:flex-end;
+    margin-right: 1rem;
+}
+
+.header-btn{
+    border: none;
+    background-color: transparent;
+    font-size: large;
+    color:whitesmoke;
+    text-shadow: 1px 2px 4px 1px black;
+}
+
+.header-btn,
+.header-text{
+    color:rgb(211, 204, 203);
+    text-shadow: 3px 1px rgb(0, 0, 0);
+}
+
+.header-text{
+    
+    text-align: center;
+    margin-top: 7rem;
+    
+}
+@media (max-width: 870px){
+    li{
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 700px){
+    li{
+        display: flex;
+        width:60%
+    }
+}
+
+@media (max-width: 520px){
+    .readlist-btn{
+        padding:2px 4px;
+        font-size: .7rem;
+    }
+
+    .title{
+        font-size: .8rem;
+    }
+
+    .sub-title{
+        font-size: .75rem;
+    }
+
+    .rating{
+        font-size: .8rem;
+    }
+
+    .author{
+        font-size: .7rem;
+    }
+
+    .book-info{
+        margin-right: 26px;
+    }
+
+    .book-img{
+        margin-top: -1rem;
+    }
+}
+
+@media (max-width: 450px){
+    li{
+        padding: 0 1.1rem;
+    }
+}
+
+@media (max-width: 410px){
+    li{
+        padding: 0 1.8rem;
+    }
+}
+
+@media(min-width: 1450px){
+    li{
+        width:16%;
+    }
+
+    .book-info{
+        margin-right:35px;
+    }
+}
