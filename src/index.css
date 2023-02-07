@@ -20,6 +20,32 @@ body, html{
     
 }
 
+.home-gif-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.home-gif{
+    width: 70%;
+    max-width: 70%;
+    max-height: 50%;
+}
+
+.no-books-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.no-books-gif{
+    width:70%;
+    max-width: 70%;
+}
+
 ul{
     display: flex;
     flex-wrap: wrap;

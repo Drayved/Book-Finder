@@ -77,6 +77,7 @@ function App() {
       </div>
       
       {!showReadlist ? (
+        
       <>
         <div className="search-container">
           <input
@@ -86,77 +87,50 @@ function App() {
             placeholder='Search for book title'
           />
         </div>
-        <ul>
-        {results
-          .filter(
-            book =>
-              book.volumeInfo.hasOwnProperty("imageLinks") &&
-              book.volumeInfo.imageLinks.hasOwnProperty("thumbnail")
-          )
-          .sort((a, b) => {
-            if (!a.volumeInfo.averageRating && !b.volumeInfo.averageRating) {
-              return 0;
-            } else if (!a.volumeInfo.averageRating) {
-              return 1;
-            } else if (!b.volumeInfo.averageRating) {
-              return -1;
-            } else {
-              return b.volumeInfo.averageRating - a.volumeInfo.averageRating;
-            }
-          })
-          .map((book) => (
-          <li key={book.id}>
-          <div className="book-img-container">
-            <a href={book.volumeInfo.canonicalVolumeLink} target="_blank">
-            <img
-              className="book-img"
-              src={book.volumeInfo.imageLinks.thumbnail}
-              alt={book.volumeInfo.title}
-            />
-            </a>
+        {results.length === 0 ? (
+          <div className='home-gif-container'>
+            <h3>Find your next adventure 😁</h3>
+            <img className='home-gif' src="../public/images/findbooks.gif" alt="No books found" />
           </div>
-          <div className='book-info'>
-            <h3 className="title">
-              <a className='title-link' href={book.volumeInfo.canonicalVolumeLink} target="_blank">
-              {book.volumeInfo.title.length > 40 ? book.volumeInfo.title.slice(0, 40) + "...." : book.volumeInfo.title}
-              </a>
-              </h3>
-              
-            {/* <p className="sub-title">{book.volumeInfo.subtitle && book.volumeInfo.subtitle.length > 15 ? book.volumeInfo.subtitle.slice(0, 15) + "...." : book.volumeInfo.subtitle}</p> */}
-            <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐": ""}</h4>
-            <p className="author">
-              <span className="author-id">{book.volumeInfo.authors ? "Author:" : ""}</span>
-              {book.volumeInfo.authors && book.volumeInfo.authors.length > 0 ? book.volumeInfo.authors.map(author => author.slice(0, 20)) + "..." : book.volumeInfo.authors}
-            </p>
-            
-            {readArr.find((read) => read.id === book.id)
-              ? (
-                <button
-                  className="readlist-btn"
-                  onClick={() => removeBook(book.id)}
-                >
-                  Remove from list
-                </button>
-              )
-              : (
-                <button
-                  className="readlist-btn"
-                  onClick={() => addToReadlist(book)}
-                >
-                  Add to list
-                </button>
-              )
-            }
-        </div>
-        </li>
-        ))}
-        </ul>
-        </>
+          
         ) : (
-        <Readlist
-              readArr={readArr} 
-              removeBook={removeBook}
-            />
+          <ul>
+            {results
+              .filter(
+                book =>
+                  book.volumeInfo.hasOwnProperty("imageLinks") &&
+                  book.volumeInfo.imageLinks.hasOwnProperty("thumbnail")
+              )
+              .sort((a, b) => {
+                if (!a.volumeInfo.averageRating && !b.volumeInfo.averageRating) {
+                  return 0;
+                } else if (!a.volumeInfo.averageRating) {
+                  return 1;
+                } else if (!b.volumeInfo.averageRating) {
+                  return -1;
+                } else {
+                  return b.volumeInfo.averageRating - a.volumeInfo.averageRating;
+                }
+              })
+              .map((book) => (
+                <li key={book.id}>
+                  <div className="book-img-container">
+                    <a href={book.volumeInfo.canonicalVolumeLink} target="_blank">
+                      <img
+                        className="book-img"
+                        src={book.volumeInfo.imageLinks.thumbnail}
+                        alt={book.volumeInfo.title}
+                      />
+                    </a>
+                  </div>
+                  ...
+                </li>
+              ))}
+          </ul>
+        )}
+      </>
+      ) : (
+        <Readlist readArr={readArr} removeBook={removeBook} />
       )}
     </div>
   );

@@ -10,7 +10,10 @@ export default function Readlist(props) {
     <div>
       
       {props.readArr.length === 0 ? (
-        <p>No books added to list</p>
+        <div className='no-books-container'>
+          <p>No books added to list 😔</p>
+          <img className='no-books-gif' src="../public/images/nobooks.gif" alt="No books added" />
+        </div>
         
         
       ) : (
