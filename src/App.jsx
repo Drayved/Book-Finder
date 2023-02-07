@@ -16,7 +16,10 @@ function App() {
   }, [readArr]);
 
   function handleInputChange(e) {
-    setSearchBooks(e.target.value);
+    if(e.key === 'Enter') {
+      setSearchBooks(e.target.value);
+    }
+    
   }
 
   function addToReadlist(book) {
@@ -84,6 +87,7 @@ function App() {
             className="search-box"
             type="text"
             onChange={handleInputChange}
+            onKeyPress={handleInputChange}
             placeholder='Search for book title'
           />
         </div>
