@@ -123,7 +123,39 @@ function App() {
                       />
                     </a>
                   </div>
-                  ...
+                  <div className='book-info'>
+            <h3 className="title">
+              <a className='title-link' href={book.volumeInfo.canonicalVolumeLink} target="_blank">
+              {book.volumeInfo.title.length > 40 ? book.volumeInfo.title.slice(0, 40) + "...." : book.volumeInfo.title}
+              </a>
+              </h3>
+              
+            {/* <p className="sub-title">{book.volumeInfo.subtitle && book.volumeInfo.subtitle.length > 15 ? book.volumeInfo.subtitle.slice(0, 15) + "...." : book.volumeInfo.subtitle}</p> */}
+            <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐": ""}</h4>
+            <p className="author">
+              <span className="author-id">{book.volumeInfo.authors ? "Author:" : ""}</span>
+              {book.volumeInfo.authors && book.volumeInfo.authors.length > 0 ? book.volumeInfo.authors.map(author => author.slice(0, 20)) + "..." : book.volumeInfo.authors}
+            </p>
+            
+            {readArr.find((read) => read.id === book.id)
+              ? (
+                <button
+                  className="readlist-btn"
+                  onClick={() => removeBook(book.id)}
+                >
+                  Remove from list
+                </button>
+              )
+              : (
+                <button
+                  className="readlist-btn"
+                  onClick={() => addToReadlist(book)}
+                >
+                  Add to list
+                </button>
+              )
+            }
+        </div>
                 </li>
               ))}
           </ul>
