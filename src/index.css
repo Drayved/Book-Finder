@@ -58,7 +58,7 @@ li{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid rgb(45, 45, 45);
+    
     align-items: center;
     width: 30%;
     height: 12rem;
@@ -66,6 +66,7 @@ li{
     text-align: center;
     margin: 0 1em;
     margin-bottom: 20px;
+    background-color: #150C05;
 }
 
 .search-container{
@@ -197,14 +198,12 @@ input:focus{
 .header-btn{
     border: none;
     background-color: transparent;
-    font-size: large;
-    color:whitesmoke;
-    text-shadow: 1px 2px 4px 1px black;
+    font-size: x-large;
 }
 
 .header-btn,
 .header-text{
-    color:rgb(211, 204, 203);
+    color:rgb(197, 194, 194);
     text-shadow: 3px 1px rgb(0, 0, 0);
 }
 
