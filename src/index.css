@@ -235,7 +235,7 @@ button{
     }
 }
 
-@media (max-width: 900px){
+@media (max-width: 950px){
     li{
         padding: 0 1rem;
         width:60%
