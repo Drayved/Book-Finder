@@ -3,6 +3,8 @@ body, html{
     margin: 0;
     background-image: linear-gradient(to right,  #211204, #162103);
     color:lightgray;
+    font-family: 'Playfair Display', serif;
+
 }
 
 /* Header */
@@ -277,7 +279,7 @@ button{
 
 @media(min-width: 1450px){
     li{
-        width:16%;
+        width:25%;
     }
 
     .book-info{
