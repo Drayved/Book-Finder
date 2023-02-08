@@ -237,7 +237,11 @@ button{
 
 @media(max-width: 565px){
     .book-img{
-        margin-left: 15px;
+        margin-left: 1.1rem;
+    }
+
+    .header-text{
+        margin-top: 4rem;
     }
 }
 
