@@ -1,6 +1,9 @@
 import {useEffect, useState } from 'react'
 import Readlist from "./components/Readlist"
-
+import Header from "./components/Header"
+import Search from "./components/Search"
+import NoResults from './components/NoResults'
+import Results from './components/Results'
 import './App.css'
 
 function App() {
@@ -19,7 +22,6 @@ function App() {
     if(e.key === 'Enter') {
       setSearchBooks(e.target.value);
     }
-    
   }
 
   function addToReadlist(book) {
@@ -64,105 +66,24 @@ function App() {
   
   return (
     <div>
-      <div className='header'>
-        
-        <div className="header-btns">
-          <button onClick={() => setShowReadlist(!showReadlist)} className="header-btn">
-            {showReadlist ? "Search Books" : "My list"}
-          </button>
-        </div>  
-        
-        <div className='header-text'>
-          <h1>Discover Your Next Favorite Book with Our Personalized Book Finder</h1>
-          <h2>Your One-Stop Destination for Book Discovery</h2>
-        </div>
-
-      </div>
-      
+      <Header 
+        showReadlist = {showReadlist}
+        setShowReadlist = {setShowReadlist}
+      />
       {!showReadlist ? (
-        
       <>
-        <div className="search-container">
-          <input
-            className="search-box"
-            type="text"
-            onChange={handleInputChange}
-            onKeyPress={handleInputChange}
-            placeholder='Search for book title'
-          />
-        </div>
+        <Search 
+          handleInputChange={handleInputChange} 
+        />
         {results.length === 0 ? (
-          <div className='home-gif-container'>
-            <h3>Find your next adventure</h3>
-            <img className='home-gif' src="images/findbooks.gif" alt="No books found" />
-          </div>
-          
+          <NoResults /> 
         ) : (
-          <ul>
-            {results
-              .filter(
-                book =>
-                  book.volumeInfo.hasOwnProperty("imageLinks") &&
-                  book.volumeInfo.imageLinks.hasOwnProperty("thumbnail")
-              )
-              .sort((a, b) => {
-                if (!a.volumeInfo.averageRating && !b.volumeInfo.averageRating) {
-                  return 0;
-                } else if (!a.volumeInfo.averageRating) {
-                  return 1;
-                } else if (!b.volumeInfo.averageRating) {
-                  return -1;
-                } else {
-                  return b.volumeInfo.averageRating - a.volumeInfo.averageRating;
-                }
-              })
-              .map((book) => (
-                <li key={book.id}>
-                  <div className="book-img-container">
-                    <a href={book.volumeInfo.canonicalVolumeLink} target="_blank">
-                      <img
-                        className="book-img"
-                        src={book.volumeInfo.imageLinks.thumbnail}
-                        alt={book.volumeInfo.title}
-                      />
-                    </a>
-                  </div>
-                  <div className='book-info'>
-            <h3 className="title">
-              <a className='title-link' href={book.volumeInfo.canonicalVolumeLink} target="_blank">
-              {book.volumeInfo.title.length > 40 ? book.volumeInfo.title.slice(0, 40) + "...." : book.volumeInfo.title}
-              </a>
-              </h3>
-              
-            {/* <p className="sub-title">{book.volumeInfo.subtitle && book.volumeInfo.subtitle.length > 15 ? book.volumeInfo.subtitle.slice(0, 15) + "...." : book.volumeInfo.subtitle}</p> */}
-            <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐": ""}</h4>
-            <p className="author">
-              <span className="author-id">{book.volumeInfo.authors ? "Author:" : ""}</span>
-              {book.volumeInfo.authors && book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.map(author => author.slice(1, 10)) + "..." : book.volumeInfo.authors}
-            </p>
-            
-            {readArr.find((read) => read.id === book.id)
-              ? (
-                <button
-                  className="readlist-btn"
-                  onClick={() => removeBook(book.id)}
-                >
-                  Remove from list
-                </button>
-              )
-              : (
-                <button
-                  className="readlist-btn"
-                  onClick={() => addToReadlist(book)}
-                >
-                  Add to list
-                </button>
-              )
-            }
-        </div>
-                </li>
-              ))}
-          </ul>
+          <Results 
+            results={results}
+            readArr={readArr}
+            addToReadlist={addToReadlist}
+            removeBook={removeBook}
+          />
         )}
       </>
       ) : (
