@@ -93,7 +93,7 @@ function App() {
         </div>
         {results.length === 0 ? (
           <div className='home-gif-container'>
-            <h3>Find your next adventure 😁</h3>
+            <h3>Find your next adventure</h3>
             <img className='home-gif' src="images/findbooks.gif" alt="No books found" />
           </div>
           
@@ -138,7 +138,7 @@ function App() {
             <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐": ""}</h4>
             <p className="author">
               <span className="author-id">{book.volumeInfo.authors ? "Author:" : ""}</span>
-              {book.volumeInfo.authors && book.volumeInfo.authors.length > 0 ? book.volumeInfo.authors.map(author => author.slice(0, 20)) + "..." : book.volumeInfo.authors}
+              {book.volumeInfo.authors && book.volumeInfo.authors.length > 1 ? book.volumeInfo.authors.map(author => author.slice(1, 10)) + "..." : book.volumeInfo.authors}
             </p>
             
             {readArr.find((read) => read.id === book.id)

@@ -1,7 +1,7 @@
 body, html{
     padding: 0;
     margin: 0;
-    background-image: linear-gradient(to right,  #180C01, #301903);
+    background-image: linear-gradient(to right,  #211204, #162103);
     color:lightgray;
 }
 
@@ -75,7 +75,9 @@ li{
     text-align: center;
     margin: 0 1em;
     margin-bottom: 20px;
-    background-color: #150C05;
+    background-color: #211204;
+    box-shadow: 1px 1px 9px 5px  #150C05;
+    border-radius: .5rem;
 }
 
 .search-container{
@@ -108,6 +110,10 @@ li{
     margin-bottom: 1rem;
 }
 
+.book-img:hover{
+    transform: scale(1.1)
+}
+
 .book-info{
     margin-top: -130px;
     margin-left: 70px;
@@ -121,6 +127,12 @@ li{
 .title-link{
     color:lightgray;
     text-decoration: none;
+    
+}
+
+.title:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .title,
@@ -161,7 +173,7 @@ li{
 }
 
 input{
-    background-color: #180C01;
+    background-color: #211204;
     border-radius: 8px;
 }
 
@@ -172,7 +184,7 @@ textarea{
 
 input:hover,
 input:focus{
-    background-color: #492504;
+    background-color: #231804;
 }
 
 /* Buttons */
@@ -200,9 +212,13 @@ button{
     text-shadow: 3px 1px rgb(0, 0, 0);
 }
 
+.header-btn:hover{
+    transform: scale(1.1)
+}
+
 .readlist-btn{
     border: none;
-    background-color: rgb(31, 54, 31);
+    background-color: #172b0c;
     border-radius: 20px;
     color: lightgray;
     padding: .5rem 1rem;
@@ -213,40 +229,30 @@ button{
 }
 
 /* Media Queries */
-@media (max-width: 870px){
+@media(max-width: 1265px){
+    li{
+        width:25%;
+    }
+}
+
+@media (max-width: 900px){
     li{
         padding: 0 1rem;
+        width:60%
     }
 }
 
 @media (max-width: 700px){
     li{
         display: flex;
-        width:60%
+        
     }
 }
 
 @media (max-width: 520px){
-    .readlist-btn{
-        padding:2px 4px;
-        font-size: .7rem;
-    }
 
-    .title{
-        font-size: .8rem;
-    }
 
-    .sub-title{
-        font-size: .75rem;
-    }
-
-    .rating{
-        font-size: .8rem;
-    }
-
-    .author{
-        font-size: .7rem;
-    }
+ 
 
     .book-info{
         margin-right: 26px;
