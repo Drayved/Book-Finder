@@ -111,7 +111,6 @@ li{
     justify-content: center;
     align-items: flex-start;
     align-self: left;
-    
 }
 
 .book-img:hover{
@@ -119,7 +118,7 @@ li{
 }
 
 .book-info{
-    margin-top: -200px;
+    margin-top: -190px;
     margin-left: 70px;
     display: flex;
     flex-direction: column;
