@@ -253,12 +253,15 @@ button{
     .readlist-btn{
         font-size: .75rem;
     }
+
+    li{
+        width:80%
+    }
 }
 
-@media (max-width: 700px){
+@media(max-width: 1265px){
     li{
-        display: flex;
-        
+        width:25%;
     }
 }
 
@@ -268,6 +271,16 @@ button{
         width:60%
     }
 }
+
+@media (max-width: 700px){
+    li{
+        display: flex;
+        
+    }
+}
+
+
+
 
 @media(min-width: 1450px){
     li{
