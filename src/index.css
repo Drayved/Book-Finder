@@ -234,16 +234,10 @@ button{
 }
 
 /* Media Queries */
-@media(max-width: 1265px){
-    li{
-        width:25%;
-    }
-}
 
-@media (max-width: 950px){
-    li{
-        padding: 0 1rem;
-        width:60%
+@media(max-width: 565px){
+    .book-img{
+        margin-left: 15px;
     }
 }
 
@@ -254,21 +248,12 @@ button{
     }
 }
 
-@media (max-width: 520px){
-
-
- 
-
-    .book-info{
-        margin-right: 26px;
-    }
-
-    .book-img{
-        margin-top: -1rem;
+@media (max-width: 950px){
+    li{
+        padding: 0 1rem;
+        width:60%
     }
 }
-
-
 
 @media(min-width: 1450px){
     li{
