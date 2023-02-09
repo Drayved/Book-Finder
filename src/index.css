@@ -1,7 +1,7 @@
 body, html{
     padding: 0;
     margin: 0;
-    background-image: linear-gradient(to right,  #211204, #162103);
+    background-image: linear-gradient(to right,  #C9BAA5,   #795833);
     color:lightgray;
     font-family: 'Playfair Display', serif;
 
@@ -72,20 +72,19 @@ ul{
     
 }
 
-li{
+li {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 30%;
-    height: 12rem;
-    padding: .3rem;
-    text-align: center;
-    margin: 0 1em;
+    justify-content: center;
+    width: 20%;
+    height: 350px;
+    border: 10px solid  #452600;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    background-color: #211204;
-    box-shadow: 1px 1px 9px 5px  #150C05;
-    border-radius: .5rem;
+    overflow: hidden;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .search-container{
@@ -100,38 +99,48 @@ li{
 
 /* Books */
 
-.book-img-container{
-    display: flex;   
-    align-self: flex-start;
-    justify-content: center;
-    height: 100vh;
-    width: 8vw;
-    align-items: center;
-}
-
-.book-img{
-    max-height: 120px;
-    height: 120px;
-    width: 70px;
+.book-img-container {
+    width: 50%;
+    height: 100%;
+    background-color:  #C9BAA5;
+    box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #333;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    align-self: left;
+    align-items: center;
+    padding: 0 5px;
+}
+
+  .book-img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 200px;
+    
 }
 
 .book-img:hover{
     transform: scale(1.1)
 }
 
-.book-info{
-    margin-top: -190px;
-    margin-left: 70px;
+.book-right {
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 50%;
-    height:100vh;
+    align-items: center;    
+    padding: 20px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .title-link{
@@ -146,18 +155,29 @@ li{
 }
 
 .title,
-.sub-title{
+.description,
+.author,
+.readlist-btn,
+.rating{
+    color: lightgray;
+}
+
+.title,
+.description{
     text-align: center;
     margin: 0;
-    font-size: 1rem;
     padding-bottom: 5px;
+}
+
+.description{
+    
+    font-size: .8rem;
     
 }
 
-.rating{
-    margin-top:5px;
-    padding-bottom: 1rem;
-    font-style: italic;
+.rating {
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .sub-title{
@@ -171,11 +191,8 @@ li{
     
 }
 
-.author{
-    font-size: .9rem;
-    font-style: italic;
-    margin-top: -2rem;
-    color: lightgray;
+.author {
+    font-size: 14px;
 }
 
 .author-id{
@@ -184,18 +201,13 @@ li{
 }
 
 input{
-    background-color: #211204;
+    background-color: #6F4E37 ;
     border-radius: 8px;
-}
-
-input,
-textarea{
-    color:whitesmoke;
 }
 
 input:hover,
 input:focus{
-    background-color: #231804;
+    background-color: #94694a  ;
 }
 
 /* Buttons */
@@ -227,24 +239,25 @@ button{
     transform: scale(1.1)
 }
 
-.readlist-btn{
+.readlist-btn {
+    background-color: #333;
+    color: #fff;
     border: none;
-    background-color: #172b0c;
-    border-radius: 20px;
-    color: lightgray;
-    padding: .5rem 1rem;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .readlist-btn:hover{
-    background-color: rgb(52, 92, 52);
+    background-color: rgb(77, 76, 76);
 }
 
 /* Media Queries */
 
-@media(max-width: 565px){
-    .book-img{
-        margin-left: 1.1rem;
-    }
+@media(max-width: 613px){
+
 
     .header-text{
         margin-top: 4rem;
@@ -260,50 +273,14 @@ button{
         font-size: .75rem;
     }
 
-    li{
-        width:80%
-    }
-
     .no-books-container{
         margin-top: -1rem;
     }
 }
 
-@media(max-width: 1265px){
+@media(max-width: 1660px){
     li{
-        width:25%;
+        width:60%;
     }
 }
 
-@media (max-width: 950px){
-    li{
-        padding: 0 1rem;
-        width:60%
-    }
-}
-
-@media (max-width: 700px){
-    li{
-        display: flex;
-        
-    }
-}
-
-
-
-
-@media(min-width: 1450px){
-    li{
-        width:20%;
-    }
-
-    .book-img-container{
-        margin-left: -20px;
-    }
-}
-
-@media(min-width: 1700px){
-    .book-img-container{
-        margin-left: -35px;
-    }
-}

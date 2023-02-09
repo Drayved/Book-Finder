@@ -21,7 +21,7 @@ function Results({results, readArr, addToReadlist, removeBook }) {
      // `renderedResults` maps over the sorted books and creates a list item for each book with information about the book
     // including its image, title, author, average rating, and a button to add or remove it from the readlist
     const renderedResults = sortedResults.map(book => (
-        <li key={book.id}>
+        <li className="book"key={book.id}>
             <div className="book-img-container">
                 <a href={book.volumeInfo.canonicalVolumeLink} target="_blank">
                     <img
@@ -31,37 +31,39 @@ function Results({results, readArr, addToReadlist, removeBook }) {
                     />
                 </a>
             </div>
-            <div className='book-info'>
-                <h3 className="title">
-                    <a className='title-link' href={book.volumeInfo.canonicalVolumeLink} target="_blank">
-                        {/* Shorten the title if it's too long */}
-                        {book.volumeInfo.title.length > 40 ? book.volumeInfo.title.slice(0, 40) + "...." : book.volumeInfo.title}
-                    </a>
-                </h3>
-                {/* Displays a star icon if there is a rating, if not displays nothing */}
-                <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐" : ""}</h4>
-                
-                <p className="author">
-                    <span className="author-id">{book.volumeInfo.authors ? "Author: " : ""}</span>
-                    
-                    {/* Shorten the author's name if it's too long */}
-                    {book.volumeInfo.authors ? book.volumeInfo.authors[0].slice(0, 20) : book.volumeInfo.authors}
-                </p>
-                {readArr.find(read => read.id === book.id) ? (
-                    <button
-                        className="readlist-btn"
-                        onClick={() => removeBook(book.id)}
-                    >
-                        Remove from list
-                    </button>
-                ) : (
-                    <button
-                        className="readlist-btn"
-                        onClick={() => addToReadlist(book)}
-                    >
-                        Add to list
-                    </button>
-                )}
+            <div className="book-right">
+                <div className='book-info'>
+                    <h3 className="title">
+                        <a className='title-link' href={book.volumeInfo.canonicalVolumeLink} target="_blank">
+                            {/* Shorten the title if it's too long */}
+                            {book.volumeInfo.title.length > 40 ? book.volumeInfo.title.slice(0, 40) + "...." : book.volumeInfo.title}
+                        </a>
+                    </h3>
+                    {/* Displays a star icon if there is a rating, if not displays nothing */}
+                    <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐" : ""}</h4>
+                    <h4 className="description">{book.volumeInfo.description && book.volumeInfo.description.length > 50 ? book.volumeInfo.description.slice(0, 50) + "...." : book.volumeInfo.description}</h4>
+                    <p className="author">
+                        <span className="author-id">{book.volumeInfo.authors ? "Author: " : ""}</span>
+                        
+                        {/* Shorten the author's name if it's too long */}
+                        {book.volumeInfo.authors ? book.volumeInfo.authors[0].slice(0, 20) : book.volumeInfo.authors}
+                    </p>
+                    {readArr.find(read => read.id === book.id) ? (
+                        <button
+                            className="readlist-btn"
+                            onClick={() => removeBook(book.id)}
+                        >
+                            Remove from list
+                        </button>
+                    ) : (
+                        <button
+                            className="readlist-btn"
+                            onClick={() => addToReadlist(book)}
+                        >
+                            Add to list
+                        </button>
+                    )}
+                </div>
             </div>
         </li>
     ));
