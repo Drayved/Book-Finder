@@ -166,7 +166,6 @@ li {
 .description{
     text-align: center;
     margin: 0;
-    
 }
 
 .description{
@@ -267,9 +266,12 @@ button{
     }
     
     .rating,
-    .readlist-btn,
     .description{
         font-size: .65rem;
+    }
+
+    .readlist-btn{
+        font-size: .4rem;
     }
 
     .author{
