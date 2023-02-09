@@ -166,13 +166,11 @@ li {
 .description{
     text-align: center;
     margin: 0;
-    padding-bottom: 5px;
+    
 }
 
 .description{
-    
     font-size: .8rem;
-    
 }
 
 .rating {
@@ -193,6 +191,7 @@ li {
 
 .author {
     font-size: 14px;
+    font-style: italic;
 }
 
 .author-id{
@@ -268,9 +267,13 @@ button{
     }
     
     .rating,
-    .author,
-    .readlist-btn{
-        font-size: .75rem;
+    .readlist-btn,
+    .description{
+        font-size: .65rem;
+    }
+
+    .author{
+        font-size: .6rem;
     }
 
     .no-books-container{
