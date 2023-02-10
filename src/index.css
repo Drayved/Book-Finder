@@ -153,7 +153,6 @@ li {
 
 .title-link,
 .author,
-.readlist-btn,
 .rating,
 .description{
     color: #422e15;
@@ -233,7 +232,7 @@ button{
 
 .readlist-btn {
     background-color: #333;
-    color: #fff;
+    color: lightgray;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
