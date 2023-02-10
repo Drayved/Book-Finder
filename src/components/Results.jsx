@@ -36,17 +36,16 @@ function Results({results, readArr, addToReadlist, removeBook }) {
                     <h3 className="title">
                         <a className='title-link' href={book.volumeInfo.canonicalVolumeLink} target="_blank">
                             {/* Shorten the title if it's too long */}
-                            {book.volumeInfo.title.length > 40 ? book.volumeInfo.title.slice(0, 40) + "...." : book.volumeInfo.title}
+                            {book.volumeInfo.title.length > 50 ? book.volumeInfo.title.slice(0, 50) + "...." : book.volumeInfo.title}
                         </a>
                     </h3>
-                    {/* Displays a star icon if there is a rating, if not displays nothing */}
                     <h4 className="rating">{book.volumeInfo.averageRating > 0 ? book.volumeInfo.averageRating + "⭐" : ""}</h4>
-                    <h4 className="description">{book.volumeInfo.description && book.volumeInfo.description.length > 50 ? book.volumeInfo.description.slice(0, 50) + "...." : book.volumeInfo.description}</h4>
+                    <h4 className="description">{book.volumeInfo.description && book.volumeInfo.description.length > 100 ? book.volumeInfo.description.slice(0, 100) + "...." : book.volumeInfo.description}</h4>
                     <p className="author">
                         <span className="author-id">{book.volumeInfo.authors ? "Author: " : ""}</span>
                         
-                        {/* Shorten the author's name if it's too long */}
-                        {book.volumeInfo.authors ? book.volumeInfo.authors[0].slice(0, 20) : book.volumeInfo.authors}
+                        {/* Shorten the author's name if it's too long and only uses the first Authors name*/}
+                        {book.volumeInfo.authors ? book.volumeInfo.authors[0].slice(0, 90) : book.volumeInfo.authors}
                     </p>
                     {readArr.find(read => read.id === book.id) ? (
                         <button

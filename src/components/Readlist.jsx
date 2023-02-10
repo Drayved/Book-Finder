@@ -35,15 +35,15 @@ export default function Readlist(props) {
                     <h3 className="title">
                       <a className='title-link' href={book.link} target="_blank">
                         {/* Shorten the title if it's too long */}
-                        {book.title.length > 40 ? book.title.slice(0, 40) + "...." : book.title}
+                        {book.title.length > 70 ? book.title.slice(0, 70) + "...." : book.title}
                       </a>
                       </h3>
-                      <h4 className="description">{book.description && book.description.length > 60 ? book.description.slice(0, 60) + "...." : book.description}</h4> 
+                      <h4 className="description">{book.description && book.description.length > 180 ? book.description.slice(0, 180) + "...." : book.description}</h4> 
                       <h4 className="rating">{book.rating > 0 ? book.rating + "⭐": ""}</h4>
                       <p className="author">
                         <span className="author-id">{book.author ? "Author: " : ""}</span>
                           {/* Shorten the author's name if it's too long */}
-                          {book.author ? book.author[0].slice(0, 20) : book.author}
+                          {book.author ? book.author[0].slice(0, 80) : book.author}
                       </p>
                       <button onClick={() => handleClick(book.id)} className='readlist-btn'>Remove from list</button>
                     </div>
