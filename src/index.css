@@ -160,18 +160,18 @@ li {
     text-shadow: 1px 1px 1px 0px black;
 }
 
-
-
 .description{
     font-size: .8rem;
+    margin: 2px;
 }
-
-
 
 .rating-container{
     padding-right:1rem;
     text-align: right;
-    
+}
+
+.rating{
+    margin: 0 0 6px 0;
 }
 
 .author {
@@ -272,18 +272,6 @@ button{
 @media(max-width: 1660px){
     li{
         width:60%;
-    }
-
-
-}
-
-@media(min-width: 1660px){
-    .description{
-        margin: 2px;
-    }
-
-    .rating{
-        margin: 0 0 6px 0;
     }
 }
 
