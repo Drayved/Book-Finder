@@ -30,7 +30,7 @@ function App() {
       setFadeOut(true)
       setSearchBooks(e.target.value);
       setShowLanding(false)
-      
+      e.target.blur();
     }
   }
 
