@@ -329,7 +329,9 @@ button{
 /* Media Queries */
 
 @media(max-width: 613px){
-
+    .front-content{
+        margin-top: -150px;
+    }
 
     .header-text{
         margin-top: 4rem;
@@ -343,8 +345,6 @@ button{
     .description{
         font-size: .7rem;
     }
-
-
 
     .author{
         font-size: .7rem;
