@@ -18,6 +18,15 @@ body, html{
     }
 }
 
+@keyframes scroll-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+}
+
 .front-img-container{
     background-image: url("../public/images/front-img.jpg") ; 
   /* Set rules to fill background */
@@ -56,16 +65,7 @@ body, html{
     text-shadow: 2px 2px 2px black;
     transition: 1s ease;
     animation: scroll-in-right 1s ease forwards;
-  }
-  
-@keyframes scroll-in-right {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
+}
 
 .text.scrolling {
     height: 100%;
@@ -117,14 +117,6 @@ body, html{
 
 .main-content{
     animation: fadeIn 2s ease-in;
-}
-
-input[type='radio']:checked{
-    -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 2px solid gray;
-    background-color: black;
 }
 
 .selector-container{
@@ -275,6 +267,18 @@ input:hover,
 input:focus{
     background-color: #C9BAA5 ;
     outline: none;
+}
+
+input::placeholder{
+    color:lightgray;
+}
+
+input[type='radio']:checked{
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid gray;
+    background-color: black;
 }
 
 /* Buttons */

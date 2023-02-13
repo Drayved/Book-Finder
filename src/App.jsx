@@ -17,8 +17,9 @@ function App() {
     JSON.parse(localStorage.getItem("readArr")) || []
   );
   const [showReadlist, setShowReadlist] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false)
+  const [searchPerformed, setSearchPerformed] = useState(false);
   const inputRef = useRef();
+
   // Use effect hook to store the readlist in local storage
   useEffect(() => {
     localStorage.setItem("readArr", JSON.stringify(readArr));
@@ -26,10 +27,8 @@ function App() {
 
   // Function to handle the input change and trigger the search
   function handleInputChange(e) {
-    
     if(e.key === 'Enter') {
-      e.preventDefault()
-      setFadeOut(true)
+      
       setSearchBooks(e.target.value);
       setShowLanding(false)
       e.target.blur();
@@ -38,9 +37,12 @@ function App() {
   }
 
   function handleSearchOptionChange(e){
-    e.preventDefault()
-    setFadeOut(true)
     setSearchOption(e.target.value)
+  }
+
+  function handleMyListClick() {
+    setShowReadlist(true);
+    setShowLanding(false)
   }
   
   function addToReadlist(book) {
@@ -90,6 +92,7 @@ useEffect(() => {
         
         const data = await response.json();
         if (data.items && data.items.length > 0) {
+          setSearchPerformed(true)
           const keys = new Set();
           const filteredResults = data.items.filter((item) => {
             if (keys.has(item.id)) {
@@ -100,7 +103,11 @@ useEffect(() => {
           });
           setResults(filteredResults);
         } else {
+          setSearchPerformed(true)
+          setResults("")
           console.error("No results found");
+          return <NoResults />
+          
         }
       }
     } catch (err) {
@@ -112,52 +119,57 @@ useEffect(() => {
 
 }, [searchBooks, searchOption]);
 
-  return (
-    <div className="content">
-      { showLanding ? 
-        <Landing 
-          searchOption = {searchOption}
-          handleSearchOptionChange = {handleSearchOptionChange}
-          handleInputChange={handleInputChange}
-        /> : 
-
-    
-        !showReadlist ? (
-        <div className="main-content">
-          <Header 
+return (
+  <div className="content">
+    { showReadlist ? 
+      <Readlist 
+        readArr={readArr} 
+        removeBook={removeBook} 
+        showReadlist = {showReadlist}
+        setShowReadlist = {setShowReadlist}
+      />
+      : 
+      <div>
+        { showLanding ? 
+          <Landing 
+            searchOption = {searchOption}
+            handleSearchOptionChange = {handleSearchOptionChange}
+            handleInputChange={handleInputChange}
             showReadlist = {showReadlist}
-            setShowReadlist = {setShowReadlist}
-          />
-          <Selector 
-            searchOption={searchOption} 
-            handleSearchOptionChange={handleSearchOptionChange} 
-          />
-          <Search 
-            handleInputChange={handleInputChange} 
-            inputRef = {inputRef}
-          />
-          {results.length === 0 ? (
-            <NoResults /> 
-          ) : (
-            <Results 
-              results={results}
-              readArr={readArr}
-              addToReadlist={addToReadlist}
-              removeBook={removeBook}
+            handleMyListClick={handleMyListClick}
+          /> 
+          : 
+          <div className="main-content">
+            <Header 
+              showReadlist = {showReadlist}
+              setShowReadlist = {setShowReadlist}
             />
-          )}
-        </div>
-        ) : (
-          <Readlist 
-          readArr={readArr} 
-          removeBook={removeBook} 
-          showReadlist = {showReadlist}
-          setShowReadlist = {setShowReadlist}
-          />
-        )
-      }
-    </div>
-  );
+            <Selector 
+              searchOption={searchOption} 
+              handleSearchOptionChange={handleSearchOptionChange} 
+            />
+            <Search 
+              handleInputChange={handleInputChange} 
+              inputRef = {inputRef}
+            />
+            {results.length === 0 ? (
+              <NoResults
+              searchPerformed={searchPerformed}
+              /> 
+            ) : (
+              <Results 
+                results={results}
+                readArr={readArr}
+                addToReadlist={addToReadlist}
+                removeBook={removeBook}
+              />
+            )}
+          </div>
+        }
+      </div>
+    }
+  </div>
+);
 }
 
-export default App
+export default App;
