@@ -1,4 +1,4 @@
-import {useEffect, useState } from "react"
+import {useEffect, useState, useRef } from "react"
 import Readlist from "./components/Readlist"
 import Header from "./components/Header"
 import Search from "./components/Search"
@@ -18,7 +18,7 @@ function App() {
   );
   const [showReadlist, setShowReadlist] = useState(false);
   const [fadeOut, setFadeOut] = useState(false)
-
+  const inputRef = useRef();
   // Use effect hook to store the readlist in local storage
   useEffect(() => {
     localStorage.setItem("readArr", JSON.stringify(readArr));
@@ -26,15 +26,19 @@ function App() {
 
   // Function to handle the input change and trigger the search
   function handleInputChange(e) {
+    
     if(e.key === 'Enter') {
+      e.preventDefault()
       setFadeOut(true)
       setSearchBooks(e.target.value);
       setShowLanding(false)
       e.target.blur();
+      inputRef.current.value = "";
     }
   }
 
   function handleSearchOptionChange(e){
+    e.preventDefault()
     setFadeOut(true)
     setSearchOption(e.target.value)
   }
@@ -112,8 +116,6 @@ useEffect(() => {
     <div className="content">
       { showLanding ? 
         <Landing 
-          id={`landing ${fadeOut ? "fade-out" : ""}`}
-          fadeOut = {fadeOut}
           searchOption = {searchOption}
           handleSearchOptionChange = {handleSearchOptionChange}
           handleInputChange={handleInputChange}
@@ -132,6 +134,7 @@ useEffect(() => {
           />
           <Search 
             handleInputChange={handleInputChange} 
+            inputRef = {inputRef}
           />
           {results.length === 0 ? (
             <NoResults /> 

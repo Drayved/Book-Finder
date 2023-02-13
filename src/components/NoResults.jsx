@@ -2,8 +2,8 @@ import React from "react"
 
 function NoResults() {
     return(
-        <div className='home-gif-container'>
-            <h3>Find your next adventure</h3>
+        <div className='no-results-container'>
+            <h3 className="no-results">No results found, please try another search</h3>
         </div>
     )
     
