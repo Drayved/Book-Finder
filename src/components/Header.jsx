@@ -13,7 +13,6 @@ export default function Header({showReadlist, setShowReadlist}) {
             </div>  
             <div className='header-text'>
                 <h4 className="discover-text">Discover Your Next Favorite Book</h4>
-                <h1>Personalized Book Finder</h1>
                 <h2>Your One-Stop Destination for Book Discovery</h2>
             </div>
         </div>
