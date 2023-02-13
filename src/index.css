@@ -19,7 +19,7 @@ body, html{
 }
 
 .front-img-container{
-    background-image: url("../public/images/front.jpg") ; 
+    background-image: url("../public/images/front-img.jpg") ; 
   /* Set rules to fill background */
     height: 100vh;
     width:100vw;
