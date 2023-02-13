@@ -352,6 +352,10 @@ button{
     .no-books-container{
         margin-top: 2rem;
     }
+
+    .header{
+        height: 250px;
+    }
 }
 
 @media(max-width: 1660px){
