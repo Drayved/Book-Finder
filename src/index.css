@@ -4,8 +4,81 @@ body, html{
     background-image: linear-gradient(to right, #C9BAA5, #795833 );
     color:lightgray;
     font-family: 'Playfair Display', serif;
-
 }
+
+/* Landing */
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+}
+
+.front-img-container{
+    background-image: url("../public/images/front.jpg") ; 
+  /* Set rules to fill background */
+    height: 100vh;
+    width:100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.front-img{
+    background-size: 100%;
+}
+
+.front-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 350px;
+    transition: 1s ease;
+}
+
+.fade{
+    opacity: 0;
+    transition: opacity 1s ease;
+    animation: fade-in 3s ease forwards;
+}
+
+.test {
+    margin-top: 0;
+    text-shadow: 2px 2px 2px black;
+    transition: 1s ease;
+    animation: scroll-in-right 1s ease forwards;
+  }
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+  
+@keyframes scroll-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+.text.scrolling {
+    height: 100%;
+  }
 
 /* Header */
 
@@ -15,6 +88,7 @@ body, html{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    animation: fadeIn 2s ease-in;
 }
 
 .header-img{
@@ -34,21 +108,7 @@ body, html{
     margin-top: 100px;
     color: rgb(185, 185, 185);
 }
-/* gifs */
-
-.home-gif-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.home-gif{
-    width: 70%;
-    max-width: 70%;
-    max-height: 50%;
-}
+/* Read list */
 
 .no-books-container{
     display: flex;
@@ -57,19 +117,42 @@ body, html{
     margin-top: 100px;
 }
 
-.no-books-gif{
-    width:70%;
-    max-width: 70%;
-}
 
 /* Main Content */
+
+.main-content{
+    animation: fadeIn 2s ease-in;
+}
+
+input[type='radio']:checked{
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid gray;
+    background-color: black;
+}
+
+.selector-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    animation: fadeIn 2.5s ease-in;
+}
+
+.selector{
+    text-align: center;
+    background-color: transparent;
+    color:lightgray;
+    font-size: 1.1rem;
+}
 
 ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 0;
-    
+    animation: fadeIn 3s ease-in;
 }
 
 li {
@@ -86,11 +169,13 @@ li {
     margin-left: 1rem;
     margin-right: 1rem;
     margin: 0 1rem 1.2rem 1rem;
+    animation: fadeIn 1s ease-in;
 }
 
 .search-container{
    text-align: center;
    margin: 1em 0;
+   animation: fadeIn 2.5s ease-in;
 }
 
 .search-box{
@@ -141,6 +226,7 @@ li {
 .title {
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
 }
 
 .title-link{
@@ -156,8 +242,8 @@ li {
 .author,
 .rating,
 .description{
-    color: #422e15;
-    text-shadow: 1px 1px 1px 0px black;
+    color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .description{

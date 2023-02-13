@@ -4,7 +4,7 @@ import React from "react"
 function Results({results, readArr, addToReadlist, removeBook }) {
      // `filteredResults` filters the results to only include books that have `imageLinks` and `thumbnail` properties
     const filteredResults = results.filter(book => book.volumeInfo.hasOwnProperty("imageLinks") && book.volumeInfo.imageLinks.hasOwnProperty("thumbnail"))
-
+    
     // `sortedResults` sorts the filtered books by average rating, with books with no average rating coming last
     const sortedResults = filteredResults.sort((a, b) => {
         if (!a.volumeInfo.averageRating && !b.volumeInfo.averageRating) {

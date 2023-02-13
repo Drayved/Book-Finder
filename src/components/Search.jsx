@@ -8,9 +8,9 @@ export default function Search({handleInputChange}) {
             <input
                 className="search-box"
                 type="text"
-                onChange={handleInputChange}
+                onChange={(e) => handleInputChange(e)}
                 onKeyPress={handleInputChange}
-                placeholder='Search for book title'
+                placeholder='Search for your next adventure'
             />
         </div>
     )

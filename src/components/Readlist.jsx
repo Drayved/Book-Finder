@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from "./Header"
 
 export default function Readlist(props) {
  
@@ -9,10 +10,13 @@ export default function Readlist(props) {
   
   return (
     <div>
+      <Header 
+        showReadlist = {props.showReadlist}
+        setShowReadlist = {props.setShowReadlist}
+      />
       {props.readArr.length === 0 ? (
         <div className='no-books-container'>
           <h3>No books added to list</h3>
-          <img className='no-books-gif' src="../images/nobooks.gif" alt="No books added" />
         </div>
       ) : (
         <>
