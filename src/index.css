@@ -364,3 +364,9 @@ button{
     }
 }
 
+@media(min-width: 1660px){
+    .search-container{
+        width: 70%;
+        margin: 1rem auto;
+    }
+}

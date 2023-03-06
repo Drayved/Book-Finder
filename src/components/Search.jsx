@@ -3,7 +3,6 @@ import React from "react"
 // A functional component that returns a search box for the user to search for books
 export default function Search({handleInputChange, inputRef}) {
 
-
     return(
         <div className="search-container">
             {/* Search input box */}
