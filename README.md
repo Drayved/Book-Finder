@@ -37,3 +37,7 @@ You can access the Quizzical application [here](https://davids-book-finder.netli
 - -HTML
 - JavaScript
 
+## Screenshots
+
+![Screenshot 1](/screenshots/screenshot1.JPG)
+![Screenshot 2](/screenshots/screenshot2.JPG)
